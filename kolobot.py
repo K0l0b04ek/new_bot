@@ -109,7 +109,8 @@ def cnt_sis3(update, context):
 
 def cnt_sis4(update, context):
     if ("да" in update.message.text.lower() or "yes" in update.message.text.lower() or
-        "of course" in update.message.text.lower() or "конечно" in update.message.text.lower()) \
+        "of course" in update.message.text.lower() or "конечно" in update.message.text.lower() or
+        "угу" in update.message.text.lower() or "ага" in update.message.text.lower()) \
             and ("не" not in update.message.text.lower() or "no" not in update.message.text.lower()):
         update.message.reply_text("Введите целое положительное число, которое хотите перевести:")
         return 1
@@ -177,7 +178,8 @@ def seq3(update, context):
 
 def seq4(update, context):
     if ("да" in update.message.text.lower() or "yes" in update.message.text.lower() or
-        "of course" in update.message.text.lower() or "конечно" in update.message.text.lower()) \
+        "of course" in update.message.text.lower() or "конечно" in update.message.text.lower() or
+        "угу" in update.message.text.lower() or "ага" in update.message.text.lower()) \
             and ("не" not in update.message.text.lower() or "no" not in update.message.text.lower()):
         update.message.reply_text("А теперь выберите для какой прогрессии вы хотите посчитать сумму первых n членов",
                                   reply_markup=markup_sis)
@@ -211,7 +213,8 @@ def eq(update, context):
 
 def eq1(update, context):
     if ("да" in update.message.text.lower() or "yes" in update.message.text.lower() or
-        "of course" in update.message.text.lower() or "конечно" in update.message.text.lower()) \
+        "of course" in update.message.text.lower() or "конечно" in update.message.text.lower() or
+        "угу" in update.message.text.lower() or "ага" in update.message.text.lower()) \
             and ("не" not in update.message.text.lower() or "no" not in update.message.text.lower()):
         update.message.reply_text("Ну тогда введите уравнение, которое вы хотите, чтобы я решил. Но учтите,"
                                   " я могу понять уравние, только по шаблону, который выглядит так:\n"
