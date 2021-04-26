@@ -272,6 +272,10 @@ def close_but(update, context):
     update.message.reply_text("Закрываю", reply_markup = ReplyKeyboardRemove())
 
 
+def urw(update, context):
+    update.message.reply_text("Всегда пожалуйста!")
+
+
 def send_website(update, context):
     update.message.reply_text("А вот наш сайт, на котором вы можете найти теорию по алгебре и геометрии, котора вам "
                               "обязательно поможет. Так же вы можете ознакомиться с его функционалом и получить "
@@ -359,6 +363,10 @@ def main():
     dp.add_handler(CommandHandler("site", send_website))
     dp.add_handler(MessageHandler(Filters.regex("^закрыть$"), close_but))
     dp.add_handler(MessageHandler(Filters.regex("^мем$"), send_meme))
+    dp.add_handler(MessageHandler(Filters.regex("^спасибо$"), urw))
+    dp.add_handler(MessageHandler(Filters.regex("^Закрыть$"), close_but))
+    dp.add_handler(MessageHandler(Filters.regex("^Мем$"), send_meme))
+    dp.add_handler(MessageHandler(Filters.regex("^Спасибо$"), urw))
 
     updater.start_polling()
 
