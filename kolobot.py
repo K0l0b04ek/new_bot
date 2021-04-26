@@ -205,7 +205,7 @@ def seq5(update, context):
 
 
 def eq(update, context):
-    update.message.reply_text("О, вы хочешь чтобы я решил для тебя уравнение? Не так ли?")
+    update.message.reply_text("О, вы хотите, чтобы я решил для Вас уравнение? Не так ли?")
     return 1
 
 
