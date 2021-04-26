@@ -8,7 +8,7 @@ from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove
 import settings
 import functions
 
-TOKEN = settings.API_KEY
+TOKEN = settings.BOT_API_KEY
 
 # PROXY = {
 #     'proxy_url': settings.PROXY_URL,
@@ -27,6 +27,8 @@ commands = [
     "прогрессии",
     "/equation - функция для того, чтобы бот решил вам уравнение, которое может быть до 2ой степени",
     "/meme - функция после вызова которой бот скинет вам смешную картиночку",
+    "/exchange_rates - функция, после вызова которой бот отправляет вам актуальный курс рубля относительной других валют"
+    " по версии ЦБРФ",
     "/site - функция отправляет вам ссылку на наш вебсайт с дополнительной теорией по алгебре и геометрии"
 ]
 
@@ -276,6 +278,13 @@ def urw(update, context):
     update.message.reply_text("Всегда пожалуйста!")
 
 
+def exrt(update, context):
+    ot = functions.req()
+    update.message.reply_text("На данный момент у меня есть такие данные по поводу курса рубля относительно других "
+                              "валют:")
+    update.message.reply_text(ot)
+
+
 def send_website(update, context):
     update.message.reply_text("А вот наш сайт, на котором вы можете найти теорию по алгебре и геометрии, котора вам "
                               "обязательно поможет. Так же вы можете ознакомиться с его функционалом и получить "
@@ -361,6 +370,7 @@ def main():
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("meme", send_meme))
     dp.add_handler(CommandHandler("site", send_website))
+    dp.add_handler(CommandHandler("exchange_rates", exrt))
     dp.add_handler(MessageHandler(Filters.regex("^закрыть$"), close_but))
     dp.add_handler(MessageHandler(Filters.regex("^мем$"), send_meme))
     dp.add_handler(MessageHandler(Filters.regex("^спасибо$"), urw))

@@ -1,3 +1,7 @@
+import json
+import requests
+
+
 def perevod(a):
     n = a["num"]
     s1 = a["sis1"]
@@ -85,3 +89,14 @@ def is_number(с):
         return True
     except ValueError:
         return False
+
+
+def req():
+    ad = "https://www.cbr-xml-daily.ru/daily_json.js"
+    response = requests.get(ad)
+    response = response.json()
+    ot = ""
+    for x in response["Valute"]:
+        ot += response["Valute"][x]["CharCode"] + " (" + response["Valute"][x]["Name"] + ") - " + \
+              str(response["Valute"][x]["Value"]) + " руб.\n"
+    return ot
