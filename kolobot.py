@@ -60,7 +60,7 @@ def cnt_sis(update, context):
 
 
 def cnt_sis1(update, context):
-    if not update.message.text.isdigit():
+    if not functions.is_number(update.message.text):
         update.message.reply_text("Введите, пожалйста, в правильном формате: любое целое положительное число")
         return 1
     if int(update.message.text) != float(update.message.text):
@@ -75,7 +75,7 @@ def cnt_sis1(update, context):
 
 
 def cnt_sis2(update, context):
-    if not update.message.text.isdigit():
+    if not functions.is_number(update.message.text):
         update.message.reply_text("Введите, пожалйста, систему счисления в правильном формате: целое число от 2 до 10")
         return 2
     if int(update.message.text) != float(update.message.text):
@@ -90,7 +90,7 @@ def cnt_sis2(update, context):
 
 
 def cnt_sis3(update, context):
-    if not update.message.text.isdigit():
+    if not functions.is_number(update.message.text):
         update.message.reply_text("Введите, пожалйста систему счисления в правильном формате: целое число от 2 до 10")
         return 3
     if int(update.message.text) != float(update.message.text):
@@ -118,13 +118,13 @@ def cnt_sis4(update, context):
 
 
 def seq(update, context):
-    update.message.reply_text("Могу посчитать сумму первых n членов геометрической прогрессии по её первому члену и"
-                              " знаменателю прогрессии! Вам нужна моя помощь?")
+    update.message.reply_text("Могу посчитать сумму первых n членов геометрической либо арифметической прогрессии!\n"
+                              "Вам нужна моя помощь?")
     return 4
 
 
 def seq1(update, context):
-    if not update.message.text.isdigit():
+    if not functions.is_number(update.message.text):
         update.message.reply_text("Пожалуйста, введите первый член в правильном формате: число")
         return 1
     for_seq["a1/b1"] = float(update.message.text)
@@ -136,7 +136,7 @@ def seq1(update, context):
 
 
 def seq2(update, context):
-    if not update.message.text.isdigit():
+    if not functions.is_number(update.message.text):
         if for_seq["f"]:
             update.message.reply_text("Пожалуйста, введите разность вашей арифметической прогрессии "
                                       "в правильном формате: число")
@@ -155,7 +155,7 @@ def seq2(update, context):
 
 
 def seq3(update, context):
-    if not update.message.text.isdigit():
+    if not functions.is_number(update.message.text):
         update.message.reply_text("Пожалуйста, введите количество членов в правильном формате: "
                                   "целое неотрицательное ЧИСЛО")
     if int(update.message.text) != float(update.message.text):
@@ -260,7 +260,7 @@ def cmd(update, context):
 
 
 def stop(update, context):
-    update.message.reply_text("ОК")
+    update.message.reply_text("Окей...")
     return ConversationHandler.END
 
 
@@ -272,7 +272,7 @@ def send_website(update, context):
     update.message.reply_text("А вот наш сайт, на котором вы можете найти теорию по алгебре и геометрии, котора вам "
                               "обязательно поможет. Так же вы можете ознакомиться с его функционалом и получить "
                               "удовольствие от пользования им. \n"
-                              "НАДО БУДЕТ СЮДЫ ССЫЛКУ ВСТАВИТЬ")
+                              "https://helpfultechsite.herokuapp.com/connection")
 
 
 def start(update, context):

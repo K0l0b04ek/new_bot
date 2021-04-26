@@ -77,3 +77,11 @@ def solving(ur):
         return str(x1) + "%" + str(x2)
     except (TypeError, TypeError):
         return "Can't solve"
+
+
+def is_number(с):
+    try:
+        float(с)
+        return True
+    except ValueError:
+        return False
